@@ -1,11 +1,19 @@
-# installer-script
+# ubuntu-setup
+
+Should actually just do a full DE setup in Sway instead through home-manager. 
+Bash script
 
 ## Prerequisites
-- Preferably Xubuntu 22.04
+- Preferably ubuntu 22.04
 - git
 
-create separate scripts (i.e. minimum setup, full setup, etc.)
-if statement to select minimal install or full install
+sudo apt install git
+git clone https
+
+## Other options to consider
+- ISO
+- autoinstall.yaml
+- bash script
 
 should use maybe xubuntu 22.04 or 22.xx with i3 install
 
@@ -31,5 +39,5 @@ sudo apt install git -y
 setup credentials and stuff
 git clone repo
 cd this dir
-chmod +x install.sh
-sudo ./install.sh
+chmod +x setup.sh
+sudo ./setup.sh

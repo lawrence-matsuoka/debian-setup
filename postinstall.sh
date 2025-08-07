@@ -1,11 +1,18 @@
 #!/bin/bash
 
-# update packages
-sudo apt update && apt upgrade -y
+#emacs and doom emacs
+#Add all to ~/.local/share/applications with some sort of format for x.desktop applications
+#symlinks from all config repo files to their appropriate destination
 
-# install git and curl
-sudo apt install git curl -y
+set -e  # Exit on error
 
+echo "==> Updating package lists"
+sudo apt update && sudo apt upgrade -y
+
+echo "==> Installing base packages"
+sudo apt install -y git curl wget gnupg lsb-release software-properties-common unzip
+
+### GIT
 # https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
 # Generate a new SSH key
 # make user input instead
@@ -24,6 +31,7 @@ cat ~/.ssh/id_ed25519.pub
 echo Select and copy the contents of the id_ed25519.pub file displayed above
 # Add SSH key in Github browser
 
+### HOME-MANAGER
 # Create credentials for git
 cd ~/.config/home-manager
 
@@ -39,9 +47,13 @@ fill with this
     userEmail = "Lawrence.Matsuoka@proton.me";
     extraConfig = {
       github.user = "lawrence-matsuoka";
+      init.defaultBranch = "main";
     };
   };
 }
+
+# Back to home directory
+cd
 
 # multi-user installation for Nix
 sh <(curl -L https://nixos.org/nix/install) --daemon
@@ -58,11 +70,13 @@ nix-shell '<home-manager>' -A install
 home-manager switch
 nix-collect-garbage -d
 
+### SYNCTHING
 # install, enable, and start syncthing
 sudo apt install syncthing -y
 sudo systemctl enable syncthing@$USER
 sudo systemctl start syncthing@$USER
 
+### CONFIGURATION FILES
 # get relevant config files from repositories
 mkdir projects/
 cd projects
@@ -71,17 +85,13 @@ git clone repo with dotfiles
 # go back to home directory
 cd
 
-# stm32cubeide
-curl
-
-# code composer studio
+### STM32CUBEIDE
 curl
 
 # orcaslicer
-curl # from source at github
+#curl # from source at github
 
 # virt-manager
-# kali linux vm 
 # or qemu
 curl kali-linux-vm
 
