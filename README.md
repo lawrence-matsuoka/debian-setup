@@ -1,43 +1,44 @@
-# ubuntu-setup
+# Larry's Good ol' Debian setup
 
-Should actually just do a full DE setup in Sway instead through home-manager. 
-Bash script
+I basically use this on my librebooted Chromebook and it's my favourite workflow even considering the subpar hardware.
+
+## Debian install
+Use the netinst iso
+Go through the installer and do not up a root password
+Only standard system utilities
+
+DE setup using i3 in home-manager
+
+## Maybes
+- STM32CubeIDE + dependencies
+- STM32CubeMX
+- ESP-IDF
+- OrcaSlicer + dependencies
+- Code Composer Studio + dependencies
+- KiCAD
+- FreeCAD
 
 ## Prerequisites
-- Preferably ubuntu 22.04
+- Debian 13
 - git
 
-sudo apt install git
-git clone https
 
-## Other options to consider
-- ISO
-- autoinstall.yaml
-- bash script
 
-should use maybe xubuntu 22.04 or 22.xx with i3 install
-
-xfce + i3 install
-make compatible with kali linux? (based on debian with xfce)
-
-update package manager
-set up git credentials
-set up syncthing
-install config files from repository
-install home-manager
-add nix-channels (home-manager and nixpkgs)
-update nix-channel and home-manager
-nix-collect-garbage -d
-install starship
-install stm32cubeide(older version) and needed packages
-install ccstudio and needed packages
-install orcaslicer from source
 download librefox and discord
 thunderbird + email accounts 
 
+esp-idf https://docs.espressif.com/projects/esp-idf/en/stable/esp32c3/get-started/linux-macos-setup.html
+
+
+## Prerequisites
 sudo apt install git -y
-setup credentials and stuff
-git clone repo
-cd this dir
+mkdir ~/projects
+cd ~/projects
+git clone https://github.com/lawrence-matsuoka/debian-setup.git
+
+cd debian-setup
 chmod +x setup.sh
 sudo ./setup.sh
+
+## misc
+Might need to initially comment out dconf in home.nix
