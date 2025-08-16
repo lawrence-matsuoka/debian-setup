@@ -1,0 +1,25 @@
+# Deprecated on newer versions
+import = [
+   # "~/.config/alacritty/themes/konsole_linux.toml"
+    "~/.config/alacritty/themes/synthwave_84.toml"
+]
+
+[font]
+size = 16.0
+
+[font.normal]
+family = "Iosevka"
+#style = "Fixed Term"
+
+[window]
+opacity = 0.95
+decorations = "None"
+
+[window.padding]
+x = 5
+y = 5
+
+[window.dimensions]
+columns = 80
+lines = 30
+
