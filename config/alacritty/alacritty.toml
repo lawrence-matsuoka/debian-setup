@@ -1,5 +1,5 @@
 # Deprecated on newer versions
-import = [
+general.import = [
    # "~/.config/alacritty/themes/konsole_linux.toml"
     "~/.config/alacritty/themes/synthwave_84.toml"
 ]
