@@ -59,7 +59,6 @@ echo "==> Successfully built and switched home-manager. Collecting garbage..."
 # i3
 echo "exec i3" > ~/.xinitrc
 
-
 ### GIT
 # https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
 # Generate a new SSH key
@@ -72,13 +71,6 @@ eval "$(ssh-agent -s)"
 # Add the SSH private key to the ssh-agent
 ssh-add ~/.ssh/id_ed25519
 
-# https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
-# Print out the public key 
-cat ~/.ssh/id_ed25519.pub
-
-echo "Select and copy the contents of the id_ed25519.pub file displayed above"
-# Add SSH key in Github browser
-
 ### SYNCTHING
 # install, enable, and start syncthing
 sudo apt install syncthing -y
@@ -90,6 +82,7 @@ sudo systemctl start syncthing@$USER
 ### Kinda recursive call to this repo's config files ;)
 cd ~/.config
 sudo ln -sf ~/projects/debian-setup/config/i3/ i3
+sudo ln -sf ~/projects/debian-setup/config/alacritty/ alacritty
 cd
 
 ### CONFIGURATION FILES
@@ -111,11 +104,18 @@ sudo sed -i -e 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=1/g' /etc/default/grub
 sudo update-grub
 echo "==> Success"
 
+# https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
+# Print out the public key 
+cat ~/.ssh/id_ed25519.pub
+# add more detail to this echo
+echo "Select and copy the contents of the id_ed25519.pub file displayed above"
+
+
 echo "Success. Please reboot after setting Git credentials"
+
+
 
 # ask user for their name
 echo Hello, what is your name?
-
 read varname
-
 echo It\'s nice to meet you $varname
