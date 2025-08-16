@@ -32,7 +32,7 @@ echo "==> Successfully installed Nix home-manager"
 # Move home-manager files to right place and create symlinks
 echo "==> Creating symlink from home-manager config repo into ~/.config/home-manager"
 cd ~/.config
-sudo ln -sf ~/projects/debian-setup/home-manager/ home-manager
+sudo ln -sf ~/projects/debian-setup/config/home-manager/ home-manager
 cd
 echo "==> Successfully created symlink for home-manager"
 
@@ -89,7 +89,7 @@ sudo systemctl start syncthing@$USER
 
 ### Kinda recursive call to this repo's config files ;)
 cd ~/.config
-sudo ln -sf ~/projects/debian-setup/i3/ i3
+sudo ln -sf ~/projects/debian-setup/config/i3/ i3
 cd
 
 ### CONFIGURATION FILES
@@ -102,7 +102,7 @@ cd
 
 echo "==> Creating symlink for .bash_profile"
 cd ~/
-sudo ln -sf ~/projects/debian-setup/.bash_profile .bash_profile
+sudo ln -sf ~/projects/debian-setup/config/.bash_profile .bash_profile
 echo "==> Successfully created symlink for .bash_profile"
 
 ## Change grub timeout to 1 sec
