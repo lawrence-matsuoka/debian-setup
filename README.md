@@ -23,7 +23,7 @@ DE setup using i3 in home-manager
 - git
 
 
-
+Migrate dotfiles
 download librefox and discord
 thunderbird + email accounts 
 

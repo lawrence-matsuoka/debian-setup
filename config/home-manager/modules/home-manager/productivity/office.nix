@@ -5,14 +5,14 @@
   home = {
     packages = with pkgs; [
       # LibreOffice and spellcheck
-      libreoffice
-      hunspell
-      hunspellDicts.en_CA
+      #libreoffice
+      #hunspell
+      #hunspellDicts.en_CA
 
-       #librewolf
+      librewolf
        #thunderbird
 
-      xournalpp
+      #xournalpp
     ];
   };
 }

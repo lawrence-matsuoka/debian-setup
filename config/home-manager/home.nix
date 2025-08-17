@@ -15,7 +15,7 @@
 
     ./modules/home-manager/fonts.nix
     ./modules/home-manager/git.nix
-#    ./modules/home-manager/productivity/office.nix
+    ./modules/home-manager/productivity/office.nix
 #    ./modules/home-manager/server/general.nix
 #    ./modules/home-manager/server/host.nix
 #    ./modules/home-manager/social.nix

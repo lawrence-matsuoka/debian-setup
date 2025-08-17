@@ -16,17 +16,17 @@ return {
 			require("mason-lspconfig").setup({
 				ensure_installed = { -- MasonInstall asm-lsp, asmfmt, black, isort, prettier, vhdl-style-guide
 					-- "asm_lsp",
-					"basedpyright",
+--					"basedpyright",
 					"bashls",
 					"clangd",
 					-- "cmake",
 					--                   "dockerls",
-					"gopls",
+--					"gopls",
 					"lua_ls",
 					"marksman",
 					"texlab",
 					--                   "rnix",
-					"ruff",
+--					"ruff",
 					--                   "sqlls",
 				},
 			})
@@ -41,9 +41,9 @@ return {
 			local util = require("lspconfig/util")
 
 			local lspconfig = require("lspconfig")
-			lspconfig.basedpyright.setup({ -- Python
-				capabilities = capabilities,
-			})
+--			lspconfig.basedpyright.setup({ -- Python
+--				capabilities = capabilities,
+--			})
 			lspconfig.bashls.setup({ -- Bash
 				capabilities = capabilities,
 			})
@@ -53,22 +53,22 @@ return {
 					"clangd",
 				},
 			})
-			lspconfig.gopls.setup({ -- Go
-				on_attach = on_attach,
-				capabilities = capabilities,
-				cmd = { "gopls" },
-				filetypes = { "go", "gomod", "gowork", "gotmpl" },
-				root_dir = util.root_pattern("go.work", "go.mod", ".git"),
-				settings = {
-					gopls = {
-						completeUnimported = true,
-						usePlaceholders = true,
-						analyses = {
-							unusedparams = true,
-						},
-					},
-				},
-			})
+--			lspconfig.gopls.setup({ -- Go
+--				on_attach = on_attach,
+--				capabilities = capabilities,
+--				cmd = { "gopls" },
+--				filetypes = { "go", "gomod", "gowork", "gotmpl" },
+--				root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+--				settings = {
+--					gopls = {
+--						completeUnimported = true,
+--						usePlaceholders = true,
+--						analyses = {
+--							unusedparams = true,
+--						},
+--					},
+--				},
+--			})
 			lspconfig.texlab.setup({ -- LaTeX
 				capabilities = capabilities,
 			})
@@ -81,9 +81,9 @@ return {
 			lspconfig.nil_ls.setup({ -- Nix
 				capabilities = capabilities,
 			})
-			lspconfig.ruff.setup({ -- Python
-				capabilities = capabilities,
-			})
+--			lspconfig.ruff.setup({ -- Python
+--				capabilities = capabilities,
+--			})
 
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)

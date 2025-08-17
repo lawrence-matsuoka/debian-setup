@@ -10,9 +10,8 @@ echo "==> Creating default directories"
 xdg-user-dirs-update
 echo "==> Successfully created default directories"
 
-# What other groups should I add here?
 echo "==> Adding user to groups"
-sudo adduser $USER dialout uucp
+sudo adduser $USER dialout uucp adm
 echo "==> Successfully added users to groups"
 
 echo "==> Updating package lists"
@@ -62,7 +61,7 @@ echo "exec i3" > ~/.xinitrc
 ### GIT
 # https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
 # Generate a new SSH key
-# make user input instead
+#### make user input instead
 ssh-keygen -t ed25519 -C "Lawrence.Matsuoka@proton.me"
 
 # Start the SSH agent in the background
@@ -77,25 +76,25 @@ sudo apt install syncthing -y
 sudo systemctl enable syncthing@$USER
 sudo systemctl start syncthing@$USER
 
-# Install starship
-
+### configuration files
 ### Kinda recursive call to this repo's config files ;)
 cd ~/.config
 sudo ln -sf ~/projects/debian-setup/config/i3/ i3
 sudo ln -sf ~/projects/debian-setup/config/alacritty/ alacritty
+sudo ln -sf ~/projects/debian-setup/config/starship.toml starship.toml
+sudo ln -sf ~/projects/debian-setup/config/nvim/ nvim
+sudo ln -sf ~/projects/debian-setup/config/gtk-3.0/ gtk-3.0
+sudo ln -sf ~/projects/debian-setup/config/gtk-4.0/ gtk-4.0
 cd
 
-### CONFIGURATION FILES
-# get relevant config files from repositories
-
-# virt-manager
-
-# QoL stuff
-## Add $USER to certain groups
+echo "==> virtual machine stuff"
+sudo apt install -y qemu-system libvirt-daemon-system virt-manager
+sudo adduser $USER libvirt
 
 echo "==> Creating symlink for .bash_profile"
 cd ~/
 sudo ln -sf ~/projects/debian-setup/config/.bash_profile .bash_profile
+sudo ln -sf ~/projects/debian-setup/config/.bashrc .bashrc
 echo "==> Successfully created symlink for .bash_profile"
 
 ## Change grub timeout to 1 sec
