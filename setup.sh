@@ -10,7 +10,9 @@ xdg-user-dirs-update
 echo "==> Successfully created default directories"
 
 echo "==> Adding user to groups"
-sudo adduser $USER dialout uucp adm
+sudo adduser $USER dialout
+sudo adduser $USER uucp
+sudo adduser $USER adm
 echo "==> Successfully added users to groups"
 
 echo "==> Updating package lists"
