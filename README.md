@@ -19,6 +19,7 @@ Only select "standard system utilities" and no other desktop environment (unless
 ## Prerequisites
 - Debian 13
 - git
+- Nix home-manager
 
 ## To-do
 Migrate all dotfiles
@@ -40,12 +41,19 @@ hidden file configs (ls -ld .*)
 
 ## Prerequisites
 sudo apt install git -y
+
+Install the [Nix package manager: home-manager](https://nixos.org/download/) multi-user or single-user
+
 mkdir ~/projects
+
 cd ~/projects
+
 git clone https://github.com/lawrence-matsuoka/debian-setup.git
 
 cd debian-setup
+
 chmod +x setup.sh
+
 sudo ./setup.sh
 
 ## misc

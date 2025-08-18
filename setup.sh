@@ -24,11 +24,6 @@ echo "==> Installing base packages"
 sudo apt install -y git curl wget gnupg lsb-release unzip xorg alacritty thunar
 echo "==> Successfully installed base packages"
 
-echo "==> Installing Nix home-manager, please follow on-screen instructions"
-sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install) --daemon
-echo "==> Successfully installed Nix home-manager"
-
-
 # Move home-manager files to right place and create symlinks
 echo "==> Creating symlink from home-manager config repo into ~/.config/home-manager"
 cd ~/.config
