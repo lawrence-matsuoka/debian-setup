@@ -21,7 +21,7 @@ echo "==> Successfully updated package lists"
 
 # No software-properties-common
 echo "==> Installing base packages"
-sudo apt install -y git curl wget gnupg lsb-release unzip xorg alacritty thunar
+sudo apt install -y wget gnupg lsb-release unzip xorg alacritty thunar # git, curl are prerequisites
 echo "==> Successfully installed base packages"
 
 # Move home-manager files to right place and create symlinks
@@ -30,9 +30,6 @@ cd ~/.config
 sudo ln -sf ~/projects/debian-setup/config/home-manager/ home-manager
 cd
 echo "==> Successfully created symlink for home-manager"
-
-echo "==> Restarting bash shell to enable Nix commands"
-exec bash
 
 echo "==> Setting and updating Nix channels"
 nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
@@ -53,24 +50,6 @@ echo "==> Successfully built and switched home-manager. Collecting garbage..."
 
 # i3
 echo "exec i3" > ~/.xinitrc
-
-### GIT
-# https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
-# Generate a new SSH key
-#### make user input instead
-ssh-keygen -t ed25519 -C "Lawrence.Matsuoka@proton.me"
-
-# Start the SSH agent in the background
-eval "$(ssh-agent -s)"
-
-# Add the SSH private key to the ssh-agent
-ssh-add ~/.ssh/id_ed25519
-
-### SYNCTHING
-# install, enable, and start syncthing
-sudo apt install syncthing -y
-sudo systemctl enable syncthing@$USER
-sudo systemctl start syncthing@$USER
 
 ### configuration files
 cd ~/.config
@@ -98,17 +77,27 @@ sudo sed -i -e 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=1/g' /etc/default/grub
 sudo update-grub
 echo "==> Success"
 
+### SYNCTHING
+# install, enable, and start syncthing
+#sudo apt install syncthing -y
+#sudo systemctl enable syncthing@$USER
+#sudo systemctl start syncthing@$USER
+
+### GIT
+# https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+# Generate a new SSH key
+echo "Please enter your email address"
+read varemail
+ssh-keygen -t ed25519 -C "varemail"
+# Start the SSH agent in the background
+eval "$(ssh-agent -s)"
+# Add the SSH private key to the ssh-agent
+ssh-add ~/.ssh/id_ed25519
 # https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
 # Print out the public key 
 cat ~/.ssh/id_ed25519.pub
 # add more detail to this echo
-echo "Select and copy the contents of the id_ed25519.pub file displayed above"
+echo "Select and copy the contents of the id_ed25519.pub file displayed above into your preferred Git frontend"
 
 echo "Success. Please reboot after setting Git credentials"
 
-
-
-# ask user for their name
-echo Hello, what is your name?
-read varname
-echo It\'s nice to meet you $varname

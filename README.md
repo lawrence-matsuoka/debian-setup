@@ -37,12 +37,14 @@ other desktop environment stuff
 - displays
 - menu for sleep/shutdown
 - login manager
-hidden file configs (ls -ld .*)
+- hidden file configs (ls -ld .*)
 
 ## Prerequisites
-sudo apt install git -y
+sudo apt install git curl -y
 
 Install the [Nix package manager: home-manager](https://nixos.org/download/) multi-user or single-user
+
+Reboot or restart your shell
 
 mkdir ~/projects
 
@@ -56,5 +58,12 @@ chmod +x setup.sh
 
 sudo ./setup.sh
 
-## misc
-Might need to initially comment out dconf in home.nix
+## To test:
+- Neovim LSPs
+- Doom Emacs
+- Syncthing
+- Compiling a LaTeX file through Nvim
+
+## Post
+Run `cat ~/.ssh/id_ed25519.pub` to get your public SSH key and insert that into your preferred Git frontend
+
