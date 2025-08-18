@@ -60,27 +60,29 @@ bindsym $mod+space exec --no-startup-id dmenu_run
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
 # change focus. Arrow keys used because of split keyboard
-#bindsym $mod+h focus left
-#bindsym $mod+j focus down
-#bindsym $mod+k focus up
-#bindsym $mod+l focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-#bindsym $mod+Shift+h move left
-#bindsym $mod+Shift+j move down
-#bindsym $mod+Shift+k move up
-#bindsym $mod+Shift+l move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+d split h
 # split in vertical orientation
 bindsym $mod+v split v
 # split toggle
@@ -182,6 +184,20 @@ mode "resize" {
         bindsym Escape mode "default"
         bindsym $mod+r mode "default"
 }
+
+## Screenshots/screen captures
+# Full Screen
+#bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/$(date)"
+# Selection
+#bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/$(date)"
+# Active Window
+#bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Pictures/$(date)"
+# Clipboard Full Screen
+#bindsym Ctrl+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
+# Clipboard Selection
+#bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
+# Clipboard Active Window
+#bindsym Ctrl+Shift+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
 
 bindsym $mod+r mode "resize"
 

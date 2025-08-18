@@ -2,7 +2,6 @@
 
 #emacs and doom emacs
 #Add all to ~/.local/share/applications with some sort of format for x.desktop applications
-#symlinks from all config repo files to their appropriate destination
 
 set -e  # Exit on error
 
@@ -77,7 +76,6 @@ sudo systemctl enable syncthing@$USER
 sudo systemctl start syncthing@$USER
 
 ### configuration files
-### Kinda recursive call to this repo's config files ;)
 cd ~/.config
 sudo ln -sf ~/projects/debian-setup/config/i3/ i3
 sudo ln -sf ~/projects/debian-setup/config/alacritty/ alacritty
@@ -108,7 +106,6 @@ echo "==> Success"
 cat ~/.ssh/id_ed25519.pub
 # add more detail to this echo
 echo "Select and copy the contents of the id_ed25519.pub file displayed above"
-
 
 echo "Success. Please reboot after setting Git credentials"
 

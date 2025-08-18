@@ -19,17 +19,24 @@
     packages = with pkgs; [
       i3 # window manager
       dmenu # menu launcher
+      # backgrounds
       i3status # status bar
       i3lock # screen lock
       dunst # notification daemon
       htop # process viewer
       # brightness
       # audio
-      # screenshot
+      xclip # screenshot
+      maim # screenshot
       # webcam
       # background settes
       # nm-applet
       # nmcli
+      # power management
+      # image viewer
+      # vlc
+      # clipboard manager
+      # 
     ];
   };
 
