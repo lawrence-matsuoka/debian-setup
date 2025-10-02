@@ -28,7 +28,6 @@ doom emacs + config
 librewolf + extensions + settings
 syncthing
 OrcaSlicer + dependencies
-KiCAD
 FreeCAD
 other desktop environment stuff
 - bluetooth
