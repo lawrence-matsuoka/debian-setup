@@ -2,6 +2,8 @@
 
 I basically use this on my librebooted Chromebook and it's my favourite workflow even considering the subpar hardware.
 
+Commit #8721388 for a working version
+
 ## Debian install
 Use the netinst iso
 Go through the installer and do not up a root password
@@ -11,23 +13,23 @@ Only select "standard system utilities" and no other desktop environment (unless
 - STM32CubeIDE + dependencies
 - STM32CubeMX
 - ESP-IDF
-- OrcaSlicer + dependencies
 - Code Composer Studio + dependencies
-- KiCAD
-- FreeCAD
 
 ## Prerequisites
 - Debian 13
-- git
-- Nix home-manager
+- Git
+- [Nix package manager: home-manager](https://nixos.org/download/) (either multi-user or single-user)
+
 
 ## To-do
 Migrate all dotfiles
-thunderbird + email accounts 
 discord + settings
 doom emacs + config
 librewolf + extensions + settings
 syncthing
+OrcaSlicer + dependencies
+KiCAD
+FreeCAD
 other desktop environment stuff
 - bluetooth
 - wifi
@@ -36,15 +38,14 @@ other desktop environment stuff
 - brightness
 - displays
 - menu for sleep/shutdown
-- login manager
 - hidden file configs (ls -ld .*)
 
 ## Prerequisites
 sudo apt install git curl -y
 
-Install the [Nix package manager: home-manager](https://nixos.org/download/) multi-user or single-user
+Install home-manager
 
-Reboot or restart your shell
+Restart your shell or reboot
 
 mkdir ~/projects
 
@@ -56,7 +57,7 @@ cd debian-setup
 
 chmod +x setup.sh
 
-sudo ./setup.sh
+./setup.sh
 
 ## To test:
 - Neovim LSPs

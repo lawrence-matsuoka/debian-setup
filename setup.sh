@@ -51,6 +51,9 @@ echo "==> Successfully built and switched home-manager. Collecting garbage..."
 # i3
 echo "exec i3" > ~/.xinitrc
 
+# Doom Emacs
+
+
 ### configuration files
 cd ~/.config
 sudo ln -sf ~/projects/debian-setup/config/i3/ i3

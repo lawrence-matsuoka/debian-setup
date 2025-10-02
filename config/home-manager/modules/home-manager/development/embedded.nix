@@ -1,6 +1,12 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
-{
+#{
+
+let
+  oldPkgs = import (fetchTarball {
+    url = "https://github.com/NixOS/nixpkgs/archive/5aba99242eb2ca90cdc4eea40d61ad9157e5913c.tar.gz"; 
+    }) { config = {}; overlays = []; };
+in {
 
   home = {
     packages = with pkgs; [
@@ -16,7 +22,7 @@
 
       # Design
       #freecad
-      #kicad
+      #oldPkgs.kicad-small
       #orca-slicer
     ];
   };
