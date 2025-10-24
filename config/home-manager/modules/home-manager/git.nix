@@ -4,9 +4,9 @@
 
   programs.git = {
     enable = true;
-    userName = "Lawrence Matsuoka";
-    userEmail = "Lawrence.Matsuoka@proton.me";
-    extraConfig = {
+    settings = {
+      user.name = "Lawrence Matsuoka";
+      user.email = "Lawrence.Matsuoka@proton.me";
       github.user = "lawrence-matsuoka";
       init.defaultBranch = "main";
     };
