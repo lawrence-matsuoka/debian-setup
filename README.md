@@ -1,8 +1,26 @@
-# Larry's Good ol' Debian setup
+# linux-env
 
-I basically use this on my librebooted Chromebook and it's my favourite workflow even considering the subpar hardware.
+An automated way to setup my configurations on Debian and Rocky Linux using Preseed, Kickstart, Bash, Ansible, and Nix.
 
-Commit #8721388 for a working version
+## Quick todo
+backup files and syncthing to truenas
+
+Table here:
+System provision: preseed / kickstart -> base os, partitioning, network, base packages
+System configuration: ansible -> system-level configuration like packages, users, ssh, services, files, firewall, updates
+User environment: home-manager -> user-level reproducible environments like CLI tools, dotfiles, shells, neovim, some packages
+Bash: to automate other configs and symlinks between projects/linux-env/config/ repo and ~/.config
+
+Kickstart / Preseed to replace the GUI install
+Bash for initial package population dependencies
+User services with home-manager / nix
+System services with Ansible and bash
+Additionally a script to setup a dev container for work env, should use docker for debian, podman for rocky, java env, vscodium with groovylint, sonarlint, gradlels, intellicode, language support for java(tm) by redhat linux
+Rocky linux setup should also be configured with gnome, then figure out how to get tiling wm on gnome without additional extensions or plugins
+Create a barebones vim setup
+Setup some CI/CD or some sort of automation to rebuild the iso when changes are pushed to the git repo (can probably be done within GitLab)
+
+Scripts should detect or have some sort of flag for which package manager to use: i.e apt for Debian and dnf/yum for Rocky
 
 ## Debian install
 Use the netinst iso
